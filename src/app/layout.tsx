@@ -29,6 +29,7 @@ export default function RootLayout({
 
           {/* FOOTER */}
           <Footer/>
+          
         </ClientOnly>
       </body>
     </html>

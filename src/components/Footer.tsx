@@ -1,5 +1,6 @@
 import React from 'react'
 import CountryLookUp from './CountryLookUp'
+import Link from 'next/link'
 
 const Footer = () => {
     return (
@@ -28,7 +29,9 @@ const Footer = () => {
                 "
             >
                 <ul className='flex items-center space-x-6'>
-                    <li className='link'>About</li>
+                    <li className='link'>
+                        <Link href={"/about"}>About</Link>
+                    </li>
                     <li className='link'>Advertising</li>
                     <li className='link'>Business</li>
                     <li className='link'>How Search Works</li>
