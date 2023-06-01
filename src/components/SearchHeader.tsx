@@ -28,7 +28,7 @@ const SearchHeader = () => {
                     />
                 </Link>
 
-                <div className='flex-1'>
+                <div className='flex-1 text-center'>
                     <SearchBox />
                 </div>
 

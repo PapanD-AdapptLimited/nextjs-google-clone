@@ -83,7 +83,12 @@ const HomeSearch = () => {
                     mt-8
                 '
             >
-                <button className='btn' onClick={handleSubmit}>Google Search</button>
+                <button 
+                    className='btn' 
+                    onClick={handleSubmit}
+                >
+                    Google Search
+                </button>
                 <button 
                     disabled={randomSearchLoading}
                     className='btn flex items-center justify-center disabled:opacity-80'
