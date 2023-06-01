@@ -1,16 +1,44 @@
-'use client';
+import WebSearchResults from "@/components/WebSearchResults";
+import Link from "next/link";
 
-import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+const page = async (context: { searchParams: any; }) => {
 
-const page = () => {
+  // console.log(context.searchParams)
 
-  // const searchParam = useSearchParams();
-  // const searchTerm = searchParam?.get('searchTerm')
-  // const [ term , setTerm ] = useState('')
+  // const searchTerm = "lectures"
+  const response = await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_API_KEY}&cx=${process.env.GOOGLE_CONTEXT}&q=${context.searchParams.searchTerm}`)
+
+  if (!response.ok) {
+    console.error(response);
+    throw new Error("Something went wrong");
+  }
+
+  const data = await response.json()
+
+  const results = data.items;
+
+  if(!results){
+    return (
+      <div className="flex flex-col justify-center items-center pt-10">
+        <h1 className="text-3xl mb-4">No results found</h1>
+        <p className="text-lg">
+          Try searching for something else or go back to the homepage{" "}
+          <Link href="/" className="text-blue-500">
+            Home
+          </Link>
+        </p>
+      </div>
+    )
+  }
 
   return (
-    <div>Web search page</div>
+    <>
+      {results && <div>
+        <WebSearchResults results={data} />
+        
+        
+        </div>}
+    </>
   )
 }
 
