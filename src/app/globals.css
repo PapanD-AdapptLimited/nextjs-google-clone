@@ -43,4 +43,13 @@ body {
     transition-shadow;
   }
 
+  .link {
+    @apply
+    hover:underline
+    cursor-pointer
+    
+  }
+
 }
+
+
