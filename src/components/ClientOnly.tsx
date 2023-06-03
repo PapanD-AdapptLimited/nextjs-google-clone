@@ -19,7 +19,7 @@ const ClientOnly: React.FC<ClientOnlyProps> = ({children}) => {
     if(!hasMounted) return null;
 
     return (
-        <>{children}</>
+        <div className="relative min-h-screen">{children}</div>
     )
 }
 
